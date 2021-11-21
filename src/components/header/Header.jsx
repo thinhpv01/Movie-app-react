@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import "./header.scss";
-import logo from "../../assets/tmovie.png";
+import React, { useRef, useEffect } from "react";
+
 import { Link, useLocation } from "react-router-dom";
+
+import "./header.scss";
+
+import logo from "../../assets/tmovie.png";
 
 const headerNav = [
   {
@@ -13,7 +16,7 @@ const headerNav = [
     path: "/movie",
   },
   {
-    display: "TV series",
+    display: "TV Series",
     path: "/tv",
   },
 ];
@@ -39,13 +42,13 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", shrinkHeader);
     };
-  });
+  }, []);
 
   return (
-    <div ref={headerRef}>
+    <div ref={headerRef} className="header">
       <div className="header__wrap container">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="" />
           <Link to="/">tMovies</Link>
         </div>
         <ul className="header__nav">
